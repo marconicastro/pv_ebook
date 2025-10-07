@@ -55,26 +55,14 @@ const HeroSection = memo(({ onScrollToCheckout }: { onScrollToCheckout: () => vo
 
         <div className="mb-4 sm:mb-6">
           <div className="flex justify-center max-w-2xl mx-auto">
-            <picture>
-              <source 
-                media="(max-width: 320px)" 
-                srcSet="https://mocha-cdn.com/0199be17-cd5f-7691-bcee-78fa36c32743/ebook-cover-transparent.png" 
-                type="image/png"
-              />
-              <source 
-                media="(max-width: 640px)" 
-                srcSet="https://mocha-cdn.com/0199be17-cd5f-7691-bcee-78fa36c32743/ebook-cover-transparent.png" 
-                type="image/png"
-              />
-              <OptimizedImage
-                src="https://mocha-cdn.com/0199be17-cd5f-7691-bcee-78fa36c32743/ebook-cover-transparent.png"
-                alt="E-book Sistema de Controle de Trips"
-                className="max-w-full h-auto drop-shadow-2xl transform hover:scale-105 transition-transform duration-300"
-                style={{maxWidth: '320px', width: '100%', height: 'auto'}}
-                priority={true}
-                loading="eager"
-              />
-            </picture>
+            <OptimizedImage
+              src="https://i.ibb.co/Ty7JVF4/ebook-logo.webp"
+              alt="E-book Sistema de Controle de Trips"
+              className="max-w-full h-auto drop-shadow-2xl transform hover:scale-105 transition-transform duration-300"
+              style={{maxWidth: '320px'}}
+              priority={true}
+              loading="eager"
+            />
           </div>
         </div>
 
