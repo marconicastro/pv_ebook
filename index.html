@@ -4,13 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- DNS Prefetch e Preconnect para otimização -->
+    <!-- DNS Prefetch e Preconnect para otimização crítica -->
     <link rel="preconnect" href="https://i.ibb.co" crossorigin />
     <link rel="dns-prefetch" href="https://i.ibb.co" />
     <link rel="preconnect" href="https://go.allpes.com.br" crossorigin />
     <link rel="dns-prefetch" href="https://go.allpes.com.br" />
+    
+    <!-- Preconnect para domínios de terceiros (defer para não bloquear render crítico) -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://connect.facebook.net" />
     
     <!-- Preload recursos críticos -->
     <link rel="preload" href="/src/react-app/main.tsx" as="script" crossorigin />
@@ -44,18 +48,34 @@
     <link rel="icon" type="image/webp" sizes="32x32" href="https://i.ibb.co/Ty7JVF4/ebook-logo.webp" />
     <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/Ty7JVF4/ebook-logo.webp" />
     
-    <!-- Preload imagem principal (above the fold) -->
-    <link rel="preload" as="image" href="https://i.ibb.co/Ty7JVF4/ebook-logo.webp" fetchpriority="high" />
+    <!-- Preload imagem principal (above the fold) com tamanho otimizado -->
+    <link rel="preload" as="image" href="https://mocha-cdn.com/0199be17-cd5f-7691-bcee-78fa36c32743/ebook-cover-transparent.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="https://i.ibb.co/Ty7JVF4/ebook-logo.webp" fetchpriority="low" />
     
     <title>Maracujá Zero Pragas - Sistema de Controle de Trips | Economize R$ 5.000/hectare</title>
     
-    <!-- CSS crítico inline para evitar flash -->
+    <!-- CSS crítico inline expandido para melhor FCP -->
     <style>
-      *{box-sizing:border-box}
-      html{scroll-behavior:smooth}
-      body{margin:0;font-family:system-ui,-apple-system,sans-serif;line-height:1.6}
-      #root{min-height:100vh}
-      .loading{display:flex;align-items:center;justify-content:center;min-height:100vh;font-size:18px;color:#16a34a}
+      *{box-sizing:border-box;margin:0;padding:0}
+      html{scroll-behavior:smooth;font-size:16px}
+      body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+      #root{min-height:100vh;position:relative}
+      .loading{display:flex;align-items:center;justify-content:center;min-height:100vh;font-size:18px;color:#16a34a;background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 100%)}
+      .loading::after{content:'';width:20px;height:20px;border:2px solid #16a34a;border-top:2px solid transparent;border-radius:50%;animation:spin 1s linear infinite;margin-left:10px}
+      @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+      .hero-section{background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 100%);padding:1.5rem 0.75rem}
+      .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+      .text-center{text-align:center}
+      .font-black{font-weight:900}
+      .text-2xl{font-size:1.5rem;line-height:2rem}
+      .text-green-600{color:#16a34a}
+      .text-red-600{color:#dc2626}
+      .text-gray-800{color:#1f2937}
+      .mb-4{margin-bottom:1rem}
+      .mb-6{margin-bottom:1.5rem}
+      .px-2{padding-left:0.5rem;padding-right:0.5rem}
+      @media(min-width:640px){.text-2xl{font-size:2.25rem;line-height:2.5rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}}
+      @media(min-width:768px){.text-4xl{font-size:3.75rem;line-height:1}.text-6xl{font-size:3.75rem;line-height:1}}
       @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}}
     </style>
   </head>
